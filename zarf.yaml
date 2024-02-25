@@ -1,0 +1,16 @@
+kind: ZarfPackageConfig
+metadata:
+  name: game-helm-charts
+  description: Example showcasing mutiple ways to deploy helm charts
+  version: 0.0.1
+
+components:
+  - name: game-helm-charts
+    required: true
+    charts:
+      # Charts are organized in a list with unique chart names per component - note that a Zarf chart name does not need to match the chart name in a Chart.yaml
+      - name: game
+        version: 6.4.0
+        namespace: default
+        # In this case `localPath` will load the podinfo chart that is located in the `helm` directory
+        localPath: helm
